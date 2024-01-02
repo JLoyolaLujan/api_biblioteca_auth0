@@ -52,9 +52,7 @@ librosRouter.get("/:id", requiredScopes("read:libros"), async (req, res) => {
         
         res.json(libro);
     } catch (error) {
-        // res.status(500).json({ error: "Error al obtener libro" });
-        const handler = errorHandler(error);
-        res.status(handler[0]).json(handler[1]);
+        res.status(500).json({ error: "Error al obtener libro" });
     }
 });
 
@@ -66,9 +64,7 @@ librosRouter.post("/", requiredScopes("write:libros"), async (req, res) => {
         await nuevoLibro.save();
         res.json(nuevoLibro);
     } catch (error) {
-        // res.status(500).json({ error: "Error al postear el libro" });
-        const handler = errorHandler(error);
-        res.status(handler[0]).json(handler[1]);
+        res.status(500).json({ error: "Error al postear el libro" });
     }
 });
 
@@ -87,9 +83,7 @@ librosRouter.put("/:id", requiredScopes("write:libros"), async (req, res) => {
 
         res.json(libro);
     } catch (error) {
-        // res.status(500).send({ error: "Error al actualizar el libro" });
-        const handler = errorHandler(error);
-        res.status(handler[0]).json(handler[1]);
+        res.status(500).send({ error: "Error al actualizar el libro" });
     }
 });
 
@@ -110,9 +104,7 @@ librosRouter.delete("/:id", requiredScopes("write:libros"), async (req, res) => 
         }
         res.json({ message: "Libro eliminado exitosamente" });
     } catch (error) {
-        // res.status(500).json({ error: "Error al eliminar el libro"});
-        const handler = errorHandler(error);
-        res.status(handler[0]).json(handler[1]);
+        res.status(500).json({ error: "Error al eliminar el libro"});
     }
 });
 
