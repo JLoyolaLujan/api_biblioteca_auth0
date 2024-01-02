@@ -6,7 +6,6 @@ const librosRouter = express.Router();
 const Libro = require("../models/Libro");
 // libreria para validar scopes
 const { requiredScopes } = require("express-oauth2-jwt-bearer");
-const errorHandler = require("../middleware/errorHandler");
 
 /*
 get /libros (listo)
